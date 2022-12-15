@@ -36,11 +36,6 @@ use App\Http\Controllers\TugasController;
 
 Route::get('/', [IndexController::class, 'index']);
 
-Route::get('/migration', function () {
-    Artisan::call('migrate:fresh');
-    Artisan::call('db:seed');
-});
-
 Route::get('/home', [IndexUserController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('checkRole:admin');
@@ -92,6 +87,8 @@ Route::get('/reset/{id}', [MyCourseController::class, 'reset']);
 
 Route::get('/laporanTransaksi', [SertifikatController::class, '__invoke']);
 
-
-
+    Route::get('/migration', function () {
+        Artisan::call('migrate:fresh');
+        Artisan::call('db:seed');
+    });
 
