@@ -87,8 +87,7 @@ Route::get('/reset/{id}', [MyCourseController::class, 'reset']);
 
 Route::get('/laporanTransaksi', [SertifikatController::class, '__invoke']);
 
-    Route::get('/migration', function () {
-        Artisan::call('migrate:fresh');
-        Artisan::call('db:seed');
-    });
-
+Route::get('/migration', function () {
+    Artisan::call('migrate:fresh');
+    Artisan::call('db:seed');
+});
